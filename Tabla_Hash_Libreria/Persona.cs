@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tabla_Hash_Libreria
+﻿namespace Tabla_Hash_Libreria
 {
     public class Persona
     {
-        public string cedula { get; set; }
-        public string nombre { get; set; }
+        private string cedula { get; set; }
+        private string nombre { get; set; }
+        private string apellido { get; set; }
 
-        public Persona(string cedula,string nombre)
+        public Persona(string cedula, string nombre, string apellido)
         {
             this.cedula = cedula;
             this.nombre = nombre;
+            this.apellido = apellido;
         }
     }
 }

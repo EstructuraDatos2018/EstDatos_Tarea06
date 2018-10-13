@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tabla_Hash_Libreria
 {
-    class OpenTable
+    public class OpenTable
     {
         HashNode[] table;
         const int size = 10;
@@ -19,6 +15,7 @@ namespace Tabla_Hash_Libreria
                 table[i] = null;
             }
         }
+
         public void insert(int key, Persona data)
         {
             HashNode nObj = new HashNode(key, data);
@@ -39,6 +36,7 @@ namespace Tabla_Hash_Libreria
                 return;
             }
         }
+
         public Persona retrieve(int key)
         {
             int hash = key % size;
@@ -60,6 +58,7 @@ namespace Tabla_Hash_Libreria
                 return null;
             }
         }
+
         public void print()
         {
             HashNode current = null;
@@ -74,8 +73,5 @@ namespace Tabla_Hash_Libreria
                 Console.WriteLine();
             }
         }
-
-
-
     }
 }
