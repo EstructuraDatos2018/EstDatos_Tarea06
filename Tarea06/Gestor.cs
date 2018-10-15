@@ -1,4 +1,5 @@
-﻿using Tabla_Hash_Libreria;
+﻿using System.Collections.Generic;
+using Tabla_Hash_Libreria;
 
 namespace Tarea06
 {
@@ -11,21 +12,21 @@ namespace Tarea06
             hashTable = new OpenTable();
         }
 
-        public bool registarPersona(string nombre, string apellido, string cedula)
+        public bool registarPersona(Persona persona)
         {
-            hashTable.insert(0, new Persona(cedula, nombre, apellido));
+            hashTable.insert(persona);
 
             return true;
         }
 
-        public Persona buscarPorCedula(string cedula)
+        public Persona buscarPorCedula(int cedula)
         {
-            return hashTable.retrieve(0);
+            return hashTable.retrieve(cedula);
         }
 
-        public Persona buscarPorApellido(string apellido)
+        public List<Persona> buscarPorApellido(string apellido)
         {
-            return hashTable.retrieve(0);
+            return hashTable.retrieveByLastName(apellido);
         }
     }
 }

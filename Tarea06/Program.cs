@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Tabla_Hash_Libreria;
 
 namespace Tarea06
@@ -60,16 +61,16 @@ namespace Tarea06
 
         public static void registrarPersona()
         {
-            Console.WriteLine("Nombre: ");
+            Console.Write("Nombre: ");
             string nombre = Console.ReadLine();
 
-            Console.WriteLine("Apellido: ");
+            Console.Write("Apellido: ");
             string apellido = Console.ReadLine();
 
-            Console.WriteLine("Cedula(sin espacios): ");
-            string cedula = Console.ReadLine();
+            Console.Write("Cedula(sin espacios): ");
+            int.TryParse(Console.ReadLine(), out int cedula);
 
-            gestor.registarPersona(nombre, apellido, cedula);
+            gestor.registarPersona(new Persona(cedula, nombre, apellido));
         }
 
         public static void buscarPersona()
@@ -95,14 +96,38 @@ namespace Tarea06
 
         public static void buscarPorCedula()
         {
-            Console.WriteLine("Numero cedula: ");
-            Persona persona = gestor.buscarPorCedula(Console.ReadLine());
+            Console.Write("Numero cedula: ");
+            int.TryParse(Console.ReadLine(), out int cedula);
+            Persona persona = gestor.buscarPorCedula(cedula);
+
+            if (persona != null)
+            {
+                Console.WriteLine("Nombre: " + persona.nombre + "\n" +
+                    "Apellido: " + persona.apellido);
+            }
+            else
+            {
+                Console.WriteLine("Numero de cedula no encontrado");
+            }
         }
 
         public static void buscarPorApellido()
         {
-            Console.WriteLine("Apellido: ");
-            Persona persona = gestor.buscarPorApellido(Console.ReadLine());
+            Console.Write("Apellido: ");
+            List<Persona> personasPorApellido = gestor.buscarPorApellido(Console.ReadLine());
+
+            if (personasPorApellido != null)
+            {
+                foreach (Persona persona in personasPorApellido)
+                {
+                    Console.WriteLine("Nombre: " + persona.nombre + "\n" +
+                                       "Apellido: " + persona.apellido);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No existen personas con el apellido");
+            }
         }
     }
 }
