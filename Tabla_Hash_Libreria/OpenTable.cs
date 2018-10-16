@@ -20,26 +20,21 @@ namespace Tabla_Hash_Libreria
 
         public void insert(Persona persona)
         {
-            int key = persona.cedula;
-
-            HashNode hashNode = new HashNode(key, persona);
-
-            int hash = key % size;
-
-            while (table[hash] != null && table[hash].getkey() % size != key % size)
+          HashNode nObj = new HashNode(persona);
+            int hash = persona.cedula % size;
+            while (table[hash] != null && table[hash].getkey() % size != persona.cedula % size)
             {
                 hash = (hash + 1) % size;
             }
-
             if (table[hash] != null && hash == table[hash].getkey() % size)
             {
-                hashNode.setNextNode(table[hash].getNextNode());
-                table[hash].setNextNode(hashNode);
+                nObj.setNextNode(table[hash].getNextNode());
+                table[hash].setNextNode(nObj);
                 return;
             }
             else
             {
-                table[hash] = hashNode;
+                table[hash] = nObj;
                 return;
             }
         }

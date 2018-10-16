@@ -2,32 +2,28 @@
 {
     public class HashNode
     {
-        int key;
-        Persona data;
+        public Persona data;
         HashNode next;
-
-        public HashNode(int key, Persona data)
+        public HashNode(Persona persona)
         {
-            this.key = key;
-            this.data = data;
-            next = null;
+            data = new Persona(
+                persona.cedula,
+                persona.nombre,
+                persona.apellido);
+            this.next = null;
         }
-
         public int getkey()
         {
-            return key;
+            return this.data.cedula;
         }
-
         public Persona getdata()
         {
             return data;
         }
-
         public void setNextNode(HashNode obj)
         {
             next = obj;
         }
-
         public HashNode getNextNode()
         {
             return this.next;
