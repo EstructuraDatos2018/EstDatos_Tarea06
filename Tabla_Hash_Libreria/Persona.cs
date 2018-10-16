@@ -12,5 +12,10 @@
             this.nombre = nombre;
             this.apellido = apellido;
         }
+
+        public Persona()
+        {
+            this.cedula = 0;
+        }
     }
 }

@@ -12,6 +12,12 @@
                 persona.apellido);
             this.next = null;
         }
+
+        public HashNode()
+        {
+            data = new Persona();
+            
+        }
         public int getkey()
         {
             return this.data.cedula;

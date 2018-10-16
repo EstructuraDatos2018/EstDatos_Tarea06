@@ -48,8 +48,12 @@ namespace Tabla_Hash_Libreria
                 hash = (hash + 1) % size;
             }
 
-            HashNode current = null;
-            current = table[hash];
+            HashNode current  = table[hash];
+            if (current == null)
+            {
+                current = new HashNode();
+            }
+
             while (current.getkey() != key && current.getNextNode() != null)
             {
                 current = current.getNextNode();
