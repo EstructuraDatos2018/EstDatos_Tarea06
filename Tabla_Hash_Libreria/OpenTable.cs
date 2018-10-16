@@ -6,7 +6,7 @@ namespace Tabla_Hash_Libreria
     public class OpenTable
     {
         private HashNode[] table;
-        private const int size = 10;
+        private const int size = 4;
 
         public OpenTable()
         {
@@ -41,20 +41,19 @@ namespace Tabla_Hash_Libreria
 
         public Persona retrieve(int key)
         {
+          
             int hash = key % size;
-
             while (table[hash] != null && table[hash].getkey() % size != key % size)
             {
                 hash = (hash + 1) % size;
             }
 
-            HashNode current = table[hash];
-
+            HashNode current = null;
+            current = table[hash];
             while (current.getkey() != key && current.getNextNode() != null)
             {
                 current = current.getNextNode();
             }
-
             if (current.getkey() == key)
             {
                 return current.getdata();

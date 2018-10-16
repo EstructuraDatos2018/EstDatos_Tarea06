@@ -7,6 +7,7 @@ namespace Tarea06
     public class Program
     {
         private static Gestor gestor;
+       
 
         public static void Main(string[] args)
         {
@@ -19,7 +20,7 @@ namespace Tarea06
                 Console.WriteLine("\n1.Registrar persona" +
                     "\n2.Buscar persona" +
                     "\n3.Salir");
-
+               
                 salir = ejecutarSeleccion(seleccionarOpcion());
             } while (!salir);
         }
@@ -55,7 +56,7 @@ namespace Tarea06
                     Console.WriteLine("Opcion invalida");
                     break;
             }
-
+          
             return salir;
         }
 
