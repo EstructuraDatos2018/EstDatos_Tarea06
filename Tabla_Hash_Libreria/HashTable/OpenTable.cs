@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tabla_Hash_Libreria.HashTable;
 
 namespace Tabla_Hash_Libreria
 {
-    public class OpenTable
+    public class OpenTable : Table
     {
-        private HashNode[] table;
-        private const int size = 4;
 
         public OpenTable()
         {
@@ -18,7 +17,7 @@ namespace Tabla_Hash_Libreria
             }
         }
 
-        public void insert(Persona persona)
+        public override void insert(Persona persona)
         {
           HashNode nObj = new HashNode(persona);
             int hash = persona.cedula % size;
@@ -39,7 +38,7 @@ namespace Tabla_Hash_Libreria
             }
         }
 
-        public Persona retrieve(int key)
+        public override Persona retrieve(int key)
         {
           
             int hash = key % size;
@@ -68,12 +67,12 @@ namespace Tabla_Hash_Libreria
             }
         }
 
-        public List<Persona> retrieveByLastName(string lastName)
+        public override List<Persona> retrieveByLastName(string lastName)
         {
             return null;
         }
 
-        public void print()
+        public override void print()
         {
             HashNode current = null;
             for (int i = 0; i < size; i++)

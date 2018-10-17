@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="GestorTable\GestorClosedTable.cs" />
     <Compile Include="GestorTable\GestorOpenTable.cs" />
+    <Compile Include="GestorTable\GestorTable.cs" />
     <Compile Include="HashTable\ClosedTable.cs" />
+    <Compile Include="HashTable\Table.cs" />
     <Compile Include="Node\HashNode.cs" />
     <Compile Include="Persona\Persona.cs" />
     <Compile Include="HashTable\OpenTable.cs" />

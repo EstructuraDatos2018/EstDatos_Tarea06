@@ -1,31 +1,31 @@
 ﻿using System.Collections.Generic;
 using Tabla_Hash_Libreria;
+using Tabla_Hash_Libreria.GestorTable;
 using Tabla_Hash_Libreria.HashTable;
 
 namespace Tarea06
 {
-    public class GestorClosedTable
+    public class GestorClosedTable : GestorTable
     {
-        private ClosedTable hashTable;
 
         public GestorClosedTable()
         {
             hashTable = new ClosedTable();
         }
 
-        public bool registarPersona(Persona persona)
+        public override bool registarPersona(Persona persona)
         {
             hashTable.insert(persona);
 
             return true;
         }
 
-        public Persona buscarPorCedula(int cedula)
+        public override Persona buscarPorCedula(int cedula)
         {
             return hashTable.retrieve(cedula);
         }
 
-        public List<Persona> buscarPorApellido(string apellido)
+        public override List<Persona> buscarPorApellido(string apellido)
         {
             return hashTable.retrieveByLastName(apellido);
         }
