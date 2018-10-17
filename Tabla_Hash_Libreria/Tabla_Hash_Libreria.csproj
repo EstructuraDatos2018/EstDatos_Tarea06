@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorTable\Gestor.cs" />
+    <Compile Include="GestorTable\GestorClosedTable.cs" />
+    <Compile Include="GestorTable\GestorOpenTable.cs" />
     <Compile Include="HashTable\ClosedTable.cs" />
     <Compile Include="Node\HashNode.cs" />
     <Compile Include="Persona\Persona.cs" />

@@ -38,6 +38,24 @@ namespace Tabla_Hash_Libreria.HashTable
             table[hash] = new HashNode(persona);
         }
 
+        public bool remove(int key)
+        {
+            int hash = key % maxSize;
+            while (table[hash] != null && table[hash].getkey() != key)
+            {
+                hash = (hash + 1) % maxSize;
+            }
+            if (table[hash] == null)
+            {
+                return false;
+            }
+            else
+            {
+                table[hash] = null;
+                return true;
+            }
+        }
+
         public bool checkOpenSpace()
         {
             bool isOpen = false;
