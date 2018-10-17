@@ -46,5 +46,10 @@
     <Compile Include="OpenTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HashTable\" />
+    <Folder Include="Node\" />
+    <Folder Include="Persona\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
