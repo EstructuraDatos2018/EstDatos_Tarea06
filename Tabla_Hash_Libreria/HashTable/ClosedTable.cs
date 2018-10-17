@@ -23,9 +23,11 @@ namespace Tabla_Hash_Libreria.HashTable
 
         public void insert(Persona persona)
         {
-            if (!checkOpenSpace())//if no open spaces available
+            if (!checkOpenSpace())//si no hay espacios abiertos
             {
-                Console.WriteLine("table is at full capacity!");
+                Console.WriteLine("");
+                Console.WriteLine("No se pueden ingresar mas datos!");
+                Console.WriteLine("");
                 return;
             }
             int hash = (persona.cedula % maxSize);
@@ -68,7 +70,15 @@ namespace Tabla_Hash_Libreria.HashTable
 
         public List<Persona> retrieveByLastName(string lastName)
         {
-            return null;
+            List<Persona> lista = null;
+            foreach (HashNode node in table)
+            {
+                if (node.getdata().apellido.Equals(lastName))
+                {
+                    lista.Add(node.getdata());
+                }
+            }
+            return lista;
         }
 
         public void print()
