@@ -149,8 +149,8 @@ namespace Tarea06
 
             if (persona != null)
             {
-                Console.WriteLine("Nombre: " + persona.nombre + "\n" +
-                    "Apellido: " + persona.apellido);
+                Console.WriteLine("    Nombre: " + persona.nombre + "\n" +
+                    "   Apellido: " + persona.apellido);
             }
             else
             {
@@ -162,12 +162,13 @@ namespace Tarea06
         {
             Console.Write("Apellido: ");
             List<Persona> personasPorApellido = gestor[gestorActual].buscarPorApellido(Console.ReadLine());
+            Console.Write("");
 
             if (personasPorApellido != null)
             {
                 foreach (Persona persona in personasPorApellido)
                 {
-                    Console.WriteLine("Nombre: " + persona.nombre + "\n" +
+                    Console.WriteLine("\nNombre: " + persona.nombre + "\n" +
                                        "Apellido: " + persona.apellido);
                 }
             }

@@ -88,12 +88,15 @@ namespace Tabla_Hash_Libreria.HashTable
 
         public override List<Persona> retrieveByLastName(string lastName)
         {
-            List<Persona> lista = null;
+            List<Persona> lista = new List<Persona>();
             foreach (HashNode node in table)
             {
-                if (node.getdata().apellido.Equals(lastName))
+                if (node != null)
                 {
-                    lista.Add(node.getdata());
+                    if (node.getdata().apellido.Equals(lastName))
+                    {
+                        lista.Add(node.getdata());
+                    }
                 }
             }
             return lista;
