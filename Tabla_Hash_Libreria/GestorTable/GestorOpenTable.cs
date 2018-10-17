@@ -16,6 +16,7 @@ namespace Tarea06
         public override bool registarPersona(Persona persona)
         {
             hashTable.insert(persona);
+            hashTable.insertInStringTable(persona);
 
             return true;
         }

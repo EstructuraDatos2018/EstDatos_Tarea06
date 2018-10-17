@@ -10,16 +10,18 @@ namespace Tabla_Hash_Libreria
         public OpenTable()
         {
             table = new HashNode[size];
+            tableString = new HashNode[size];
 
             for (int i = 0; i < size; i++)
             {
                 table[i] = null;
+                tableString[i] = null;
             }
         }
 
         public override void insert(Persona persona)
         {
-          HashNode nObj = new HashNode(persona);
+            HashNode nObj = new HashNode(persona);
             int hash = persona.cedula % size;
             while (table[hash] != null && table[hash].getkey() % size != persona.cedula % size)
             {
@@ -36,6 +38,31 @@ namespace Tabla_Hash_Libreria
                 table[hash] = nObj;
                 return;
             }
+        }
+
+        public void insertInStringTable(Persona persona)
+        {
+            persona.apellido = persona.apellido.ToLower();
+            HashNode nObj = new HashNode(persona);
+            int lastNameLength = persona.apellido.Length;
+            int hashString =  lastNameLength % size;
+            
+            while (tableString[hashString] != null && tableString[hashString].GetLastNameKey() % size != lastNameLength % size)
+            {
+                hashString = (hashString + 1) % size;
+            }
+            if (tableString[hashString] != null && hashString == tableString[hashString].GetLastNameKey() % size)
+            {
+                nObj.setNextNode(tableString[hashString].getNextNode());
+                tableString[hashString].setNextNode(nObj);
+                return;
+            }
+            else
+            {
+                tableString[hashString] = nObj;
+                return;
+            }
+           
         }
 
         public override Persona retrieve(int key)
@@ -69,6 +96,11 @@ namespace Tabla_Hash_Libreria
 
         public override List<Persona> retrieveByLastName(string lastName)
         {
+            List<Persona> lista = null;
+            int lastNameLength = lastName.Length;
+            int hashString = lastNameLength % size;
+
+
             return null;
         }
 
@@ -88,5 +120,7 @@ namespace Tabla_Hash_Libreria
                 Console.WriteLine();
             }
         }
+
+       
     }
 }
