@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorTable\Gestor.cs" />
+    <Compile Include="HashTable\ClosedTable.cs" />
     <Compile Include="Node\HashNode.cs" />
     <Compile Include="Persona\Persona.cs" />
     <Compile Include="HashTable\OpenTable.cs" />
