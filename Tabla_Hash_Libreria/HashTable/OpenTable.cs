@@ -98,12 +98,33 @@ namespace Tabla_Hash_Libreria
 
         public List<Persona> retrieveByLastName(string lastName)
         {
-            List<Persona> lista = null;
+            bool esNull = false;
+            List<Persona> lista = new List<Persona>();
             int lastNameLength = lastName.Length;
             int hashString = lastNameLength % size;
+            HashNode current = tableString[hashString];
+
+            if (current!= null)
+            {
+                while (current!=null && current.getdata().apellido.Equals(lastName.ToLower()) && esNull == false)
+                {
+                    lista.Add(current.getdata());
+                    if (current.getNextNode() == null)
+                    {
+                        esNull = true;
+                    }
+                    current = current.getNextNode();
+                   
+                }
+            }
+            else
+            {
+                lista = null;
+            }
 
 
-            return null;
+
+            return lista;
         }
 
         public void print()
