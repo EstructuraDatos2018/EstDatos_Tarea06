@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Tabla_Hash_Libreria.HashTable
 {
-    class ClosedTable
+    class ClosedTable : Table
     {
-        private const int maxSize = 5;//tamaño de la tabla
+        private const int size = 5;
         private HashNode[] table;
 
         public ClosedTable()
         {
-            table = new HashNode[maxSize];
+            table = new HashNode[size];
 
-            for (int i = 0; i < maxSize; i++)
+            for (int i = 0; i < size; i++)
             {
                 table[i] = null;
             }
         }
 
-        public void insert(Persona persona)
+        public override void insert(Persona persona)
         {
             if (!checkOpenSpace())//si no hay espacios abiertos
             {
@@ -30,20 +30,20 @@ namespace Tabla_Hash_Libreria.HashTable
                 Console.WriteLine("");
                 return;
             }
-            int hash = (persona.cedula % maxSize);
+            int hash = (persona.cedula % size);
             while (table[hash] != null && table[hash].getkey() != persona.cedula)
             {
-                hash = (hash + 1) % maxSize;
+                hash = (hash + 1) % size;
             }
             table[hash] = new HashNode(persona);
         }
 
         public bool remove(int key)
         {
-            int hash = key % maxSize;
+            int hash = key % size;
             while (table[hash] != null && table[hash].getkey() != key)
             {
-                hash = (hash + 1) % maxSize;
+                hash = (hash + 1) % size;
             }
             if (table[hash] == null)
             {
@@ -59,7 +59,7 @@ namespace Tabla_Hash_Libreria.HashTable
         public bool checkOpenSpace()
         {
             bool isOpen = false;
-            for (int i = 0; i < maxSize; i++)
+            for (int i = 0; i < size; i++)
             {
                 if (table[i] == null)
                 {
@@ -69,12 +69,12 @@ namespace Tabla_Hash_Libreria.HashTable
             return isOpen;
         }
 
-        public Persona retrieve(int key)
+        public override Persona retrieve(int key)
         {
-            int hash = key % maxSize;
+            int hash = key % size;
             while (table[hash] != null && table[hash].getkey() != key)
             {
-                hash = (hash + 1) % maxSize;
+                hash = (hash + 1) % size;
             }
             if (table[hash] == null)
             {
@@ -86,7 +86,7 @@ namespace Tabla_Hash_Libreria.HashTable
             }
         }
 
-        public List<Persona> retrieveByLastName(string lastName)
+        public override List<Persona> retrieveByLastName(string lastName)
         {
             List<Persona> lista = null;
             foreach (HashNode node in table)
@@ -99,11 +99,11 @@ namespace Tabla_Hash_Libreria.HashTable
             return lista;
         }
 
-        public void print()
+        public override void print()
         {
             for (int i = 0; i < table.Length; i++)
             {
-                if (table[i] == null && i <= maxSize)//Si el espacio actual es nulo
+                if (table[i] == null && i <= size)//Si el espacio actual es nulo
                 {
                     continue;//no lo imprime
                 }
