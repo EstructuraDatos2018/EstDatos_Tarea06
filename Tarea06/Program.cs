@@ -6,12 +6,12 @@ namespace Tarea06
 {
     public class Program
     {
-        private static Gestor gestor;
+        private static GestorOpenTable gestor;
        
 
         public static void Main(string[] args)
         {
-            gestor = new Gestor();
+            gestor = new GestorOpenTable();
 
             bool salir = false;
 
