@@ -56,7 +56,7 @@ namespace Tarea06
 
         public static bool mostrarMenu()
         {
-            if(gestorActual == 1)
+            if(gestorActual == 0)
             {
                 Console.WriteLine("***************Hash Cerrado***************");
             }
