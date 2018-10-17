@@ -34,10 +34,12 @@ namespace Tarea06
             {
                 case 1:
                     gestorActual=0;
+                    salir = mostrarMenu();
                     break;
 
                 case 2:
                     gestorActual=1;
+                    salir = mostrarMenu();
                     break;
 
                 case 3:
@@ -47,10 +49,6 @@ namespace Tarea06
                 default:
                     Console.WriteLine("Opcion invalida");
                     break;
-            }
-            if(salir == false)
-            {
-                salir = mostrarMenu();
             }
 
             return salir;
