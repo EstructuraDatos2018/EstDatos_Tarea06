@@ -15,11 +15,11 @@ namespace Tarea06
         public bool registarPersona(Persona persona)
         {
             hashTable.insert(persona);
+            hashTable.insertInStringTable(persona);
 
             return true;
         }
-
-        public Persona buscarPorCedula(int cedula)
+          public Persona buscarPorCedula(int cedula)
         {
             return hashTable.retrieve(cedula);
         }

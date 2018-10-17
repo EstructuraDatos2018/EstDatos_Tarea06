@@ -34,6 +34,10 @@
         {
             return this.next;
         }
+        public int GetLastNameKey()
+        {
+            return this.data.apellido.Length;
+        }
     }
 }
 
