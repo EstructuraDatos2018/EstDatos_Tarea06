@@ -24,8 +24,6 @@ namespace Tarea06
                     "\n2.Hash Abierto." +
                     "\n3.Salir.");
                 salir = seleccionarGestor(seleccionarOpcion());
-
-                salir = ejecutarSeleccion(seleccionarOpcion());
             } while (!salir);
         }
 
