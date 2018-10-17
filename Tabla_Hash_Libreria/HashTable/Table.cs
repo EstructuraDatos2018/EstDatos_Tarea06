@@ -10,6 +10,7 @@ namespace Tabla_Hash_Libreria.HashTable
     {
         protected const int size = 5;//tamaño de la tabla
         protected HashNode[] table;
+        protected HashNode[] tableString;
 
         public abstract void insert(Persona persona);
 

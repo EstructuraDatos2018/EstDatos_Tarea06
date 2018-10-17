@@ -6,7 +6,7 @@ namespace Tabla_Hash_Libreria
 {
     public class OpenTable : Table
     {
-
+        
         public OpenTable()
         {
             table = new HashNode[size];

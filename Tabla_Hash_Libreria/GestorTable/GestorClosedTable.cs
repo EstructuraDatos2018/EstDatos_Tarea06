@@ -30,9 +30,6 @@ namespace Tarea06
             return hashTable.retrieveByLastName(apellido);
         }
 
-        public bool eliminar(int cedula)
-        {
-            return hashTable.remove(cedula);
-        }
+      
     }
 }
